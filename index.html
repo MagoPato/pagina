@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación con Bootstrap 4</title>
+    <!-- CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilo para la barra de navegación superior en pantallas grandes */
+        .navbar {
+            background-color: black;
+            /* Fondo negro para pantallas grandes */
+        }
+
+        /* Estilo para la barra de navegación lateral */
+        aside {
+            background-color: black;
+            /* Fondo negro para el menú lateral */
+            position: fixed;
+        }
+
+        .nav-item {
+            margin-bottom: 22px;
+            /* Espaciado entre los elementos del menú lateral */
+        }
+
+        /* Estilo para el menú de navegación superior en móviles */
+        @media (max-width: 768px) {
+            .navbar {
+                background-color: #F0F0F0;
+                /* Fondo transparente para el menú superior en móviles */
+            }
+
+            aside {
+                display: none;
+                /* Ocultar menú lateral en dispositivos móviles */
+            }
+
+            .navbar-bottom {
+                display: flex;
+                /* Mostrar la barra de navegación inferior */
+            }
+
+            main {
+                margin-left: 0px;
+                /* Margin izquierdo en móviles */
+                margin-bottom: 55px;
+                /* Espacio para la barra inferior */
+            }
+        }
+
+        /* Ocultar la barra de navegación inferior en pantallas grandes */
+        @media (min-width: 769px) {
+            .navbar-bottom {
+                display: none;
+                /* Ocultar en pantallas grandes */
+            }
+
+            main {
+                margin-left: 145px;
+                /* Margin izquierdo en pantallas grandes */
+                margin-bottom: 0;
+                /* Sin margen inferior en pantallas grandes */
+            }
+        }
+
+        main {
+            background-color: #F0F0F0;
+            /* Fondo rojo para el contenido principal */
+            color: white;
+            /* Color del texto en el contenido principal */
+            padding: 20px;
+            /* Espaciado interno del contenido principal */
+        }
+
+        /* Estilo para los widgets de gráficos */
+        .widget {
+            background-color: white;
+            /* Fondo blanco para los widgets */
+            padding: 5px;
+            /* Espaciado interno de los widgets */
+            border-radius: 5px;
+            /* Bordes redondeados */
+            margin-bottom: 20px;
+            /* Espaciado entre los widgets */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Sombra para los widgets */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegación superior (solo para pantallas grandes) -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Logo y nombre ocultos en móviles -->
+            <a class="navbar-brand d-none d-md-flex align-items-center" href="#">
+                <img src="img/logo.png" alt="Logo" style="width: 40px; height: 44px;">
+                <span class="ml-2"
+                    style="font-family: 'Arial Rounded MT Bold', sans-serif; font-size: 1.7rem;">WATTVISION</span>
+            </a>
+
+            <!-- Botón de menú hamburguesa en móvil con imagen -->
+            <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="img/Mperfil.png" alt="Menú" style="width: 34px; height: 34px;">
+            </button>
+
+            <!-- Icono de más a la derecha en móvil con PNG diferente -->
+            <button class="btn d-flex ml-auto">
+                <img src="img/mas 2.png" alt="Icono móvil" class="d-md-none" style="width: 45px; height: 45px;">
+                <img src="img/mas 1.png" alt="Icono web" class="d-none d-md-block" style="width: 45px; height: 45px;">
+            </button>
+        </div>
+    </nav>
+    <!-- Barra de navegación inferior para pantallas pequeñas -->
+    <nav class="navbar navbar-dark fixed-bottom navbar-bottom" style="background-color: black; padding: 15px 0;">
+        <ul class="nav justify-content-around w-100 text-center" style="height: 55px;">
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex flex-column align-items-center" href="#" style="padding: 0;">
+                    <img src="img/icon-Grafica.png" alt="Gráficas" style="width: 33px; height: 33px;">
+                    <span class="mt-1" style="font-size: 12px;">Gráficas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex flex-column align-items-center" href="#" style="padding: 0;">
+                    <img src="img/icon-Inicio.png" alt="Inicio" style="width: 38px; height: 38px;">
+                    <span class="mt-1" style="font-size: 12px;">Inicio</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex flex-column align-items-center" href="#" style="padding: 0;">
+                    <img src="img/icon-Datos.png" alt="Datos" style="width: 33px; height: 33px;">
+                    <span class="mt-1" style="font-size: 12px;">Datos</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="d-flex" style="margin-top: 56px;"> <!-- Espacio para la barra superior -->
+        <!-- Barra de navegación lateral -->
+        <aside class="p-3" style="width: 145px; height: calc(100vh - 56px);">
+            <ul class="list-unstyled">
+                <li class="nav-item d-flex align-items-center">
+                    <img src="img/Wperfil.png" alt="Opción 1" class="mr-2" style="width: 37px; height: 37px;">
+                    <span style="color: white;">Perfil</span>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <img src="img/icon-Grafica.png" alt="Opción 2" class="mr-2" style="width: 37px; height: 37px;">
+                    <span style="color: white;">Gráficas</span>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <img src="img/icon-Inicio.png" alt="Opción 3" class="mr-2" style="width: 37px; height: 37px;">
+                    <span style="color: white;">Inicio</span>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <img src="img/icon-Datos.png" alt="Opción 4" class="mr-2" style="width: 37px; height: 37px;">
+                    <span style="color: white;">Datos</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="p-4" style="flex-grow: 1;">
+            <div class="widget">
+                <h2>Gráfica 1</h2>
+                <canvas id="chart1" width="400" height="200"></canvas>
+            </div>
+            <div class="widget">
+                <h2>Gráfica 2</h2>
+                <canvas id="chart2" width="400" height="200"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <!-- JS de Bootstrap y Chart.js para las gráficas -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Inicializar gráficas
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Datos de Ejemplo 1',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+                datasets: [{
+                    label: 'Datos de Ejemplo 2',
+                    data: [10, 15, 7, 12, 8, 5],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
